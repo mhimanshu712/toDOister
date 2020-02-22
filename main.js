@@ -1,8 +1,16 @@
+/*
+1.  ul.appendChild(anelement)
+
+*/
+
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow,Menu} = electron;
+const {app, BrowserWindow,Menu,ipcMain} = electron;
+
+//SET ENV
+process.env.NODE_ENV = 'production';
 
 let mainWindow;
 let addWindow;
@@ -10,7 +18,9 @@ let addWindow;
 //Listen for app to be ready
 app.on('ready',function(){
     //create new window
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow({webPreferences:{
+        nodeIntegration:true
+    }});
     //Load html into window
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname,'mainWindow.html'),
@@ -36,7 +46,10 @@ function creteAddWindow(){
     addWindow = new BrowserWindow({
         width:200,
         height: 300,
-        title: 'Add Shopping List Item'
+        title: 'Add Shopping List Item',
+        webPreferences:{
+            nodeIntegration:true
+        }
     });
     //Load html into window
     addWindow.loadURL(url.format({
@@ -52,6 +65,12 @@ function creteAddWindow(){
 
 }
 
+ipcMain.on('item:add',function(e,item){
+    mainWindow.webContents.send('item:add',item);
+    console.log('msg: '+item);
+    addWindow.close();
+})
+
 //Create menu template
 const mainMenuTemplate = [
     {
@@ -65,6 +84,9 @@ const mainMenuTemplate = [
             },
             {
                 label: 'Clear Items',
+                click(){
+                    mainWindow.webContents.send('item:clear');
+                }
             },
             {
                 label:'Quit',
@@ -90,6 +112,9 @@ if(process.env.NODE_ENV !== 'production'){
                     focusedWindow.toggleDevTools();
                     
                 }
+            },
+            {
+                role: 'reload'
             }
         ]
     })
