@@ -73,7 +73,7 @@ h1 i {
 	float: right;
 }
 
-span {
+.container span {
 	background: #e74c3c;
 	height: 28px;
 	margin-right: 20px;
@@ -91,6 +91,13 @@ li:hover span {
 	opacity: 1.0;
 }
 
-i {
+.container i {
 	transition: 0.2s linear;
+}
+
+#closeApp {
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 30px;
+	color: white;
 }
