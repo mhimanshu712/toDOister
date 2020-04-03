@@ -1,4 +1,4 @@
-# Electron-Hellow-World
+# toDOister
 
 A simple but elegant looking To-Do Application wrapped in Electron.
 <br>
