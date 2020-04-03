@@ -1,3 +1,3 @@
 # Electron-Hellow-World
 
-A simple notepad Application wrapped in html.
+A simple To-do Application wrapped in html.
