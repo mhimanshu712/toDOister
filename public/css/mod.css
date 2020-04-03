@@ -101,3 +101,11 @@ li:hover span {
 	font-size: 30px;
 	color: white;
 }
+
+#closeApp:hover {
+	color:#e74c3c;
+}
+
+#expand-button:hover {
+	color:#e74c3c;
+}

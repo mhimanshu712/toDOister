@@ -6,7 +6,7 @@ $("ul").on('click','li',function(){
 $("ul").on('click','span',function(event){
 	event.stopPropagation();
 	$(this).parent().fadeOut(200,()=>{
-		$(this).remove();
+		$(this).parent().remove();
 	});
 });
 
@@ -16,7 +16,7 @@ $("input[type='text']").keypress(function(event){
 		var todoText = $(this).val();
 		
 		//Create a new list element
-		$('ul').append("<li><span><i class='fa fa-trash' ></i> </span>"+todoText+"</li>");
+		$('ul').append("<li class='note'><span><i class='fa fa-trash' ></i> </span>"+todoText+"</li>");
 
 		//Delete text
 		$(this).val("");
