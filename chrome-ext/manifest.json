@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Darkstars Blocker",
+    "name": "Simple To Do List",
     "version": "1.0",
-    "description": "Darkstars tool",
+    "description": "A simple and minimal to-do list, no ads no signup.",
     "browser_action":{
         "default_popup": "home.html"
     },
