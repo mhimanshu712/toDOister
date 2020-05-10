@@ -1,5 +1,6 @@
 # toDOister
 
-A simple but elegant looking To-Do Application wrapped in Electron.
+A simple but elegant looking To-Do Application.
+The app itself is written in HTML5 only, its been wraaped in electron and there also a chrome extension available.
 <br>
-Used: `Electron` `jQuery` `vanilla css`
+Used: `Chrome` `Electron` `jQuery` `vanilla css`
